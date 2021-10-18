@@ -11,8 +11,8 @@ import android.widget.TextView;
 public class MainActivity extends AppCompatActivity {
 
     private EditText edCelsius;
-    private TextView tvTempFahrenheit;
-    private TextView tvTempKelvin;
+    private TextView edTempFahrenheit;
+    private TextView edTempKelvin;
     private float resultKelvin;
     private float resultFahrenheit;
 
@@ -21,8 +21,8 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        tvTempFahrenheit = (TextView) findViewById(R.id.tvTempFahrenheit);
-        tvTempKelvin = (TextView) findViewById(R.id.tvTempKelvin);
+        edTempFahrenheit = (EditText) findViewById(R.id.edTempFahrenheit);
+        edTempKelvin = (EditText) findViewById(R.id.edTempKelvin);
         edCelsius = (EditText) findViewById(R.id.edCelsius);
 
         edCelsius.addTextChangedListener(new TextWatcher() {
