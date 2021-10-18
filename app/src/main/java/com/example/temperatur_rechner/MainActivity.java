@@ -38,9 +38,13 @@ public class MainActivity extends AppCompatActivity {
 
             @Override
             public void afterTextChanged(Editable editable) {
-                resultKelvin = ctoK(Float.parseFloat(edCelsius.getText().toString()));
-                resultFahrenheit = ctoF(Float.parseFloat(edCelsius.getText().toString()));
-
+                if(editable.length() != 0) {
+                    resultKelvin = ctoK(Float.parseFloat(edCelsius.getText().toString()));
+                    resultFahrenheit = ctoF(Float.parseFloat(edCelsius.getText().toString()));
+                }else{
+                    resultKelvin = 0;
+                    resultFahrenheit = 0;
+                }
                 tvTempFahrenheit.setText(String.format("%.2f Fahrenheit", resultFahrenheit));
                 tvTempKelvin.setText(String.format("%.2f Kelvin", resultKelvin));
             }
