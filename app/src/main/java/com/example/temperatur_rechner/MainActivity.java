@@ -45,8 +45,58 @@ public class MainActivity extends AppCompatActivity {
                     resultKelvin = 0;
                     resultFahrenheit = 0;
                 }
-                tvTempFahrenheit.setText(String.format("%.2f Fahrenheit", resultFahrenheit));
-                tvTempKelvin.setText(String.format("%.2f Kelvin", resultKelvin));
+                edTempFahrenheit.setText(String.format("%.2f Fahrenheit", resultFahrenheit));
+                edTempKelvin.setText(String.format("%.2f Kelvin", resultKelvin));
+            }
+        });
+
+        edTempKelvin.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+
+            }
+
+            @Override
+            public void afterTextChanged(Editable editable) {
+                if(editable.length() != 0) {
+                    resultKelvin = ctoK(Float.parseFloat(edCelsius.getText().toString()));
+                    resultFahrenheit = ctoF(Float.parseFloat(edCelsius.getText().toString()));
+                }else{
+                    resultKelvin = 0;
+                    resultFahrenheit = 0;
+                }
+                edTempFahrenheit.setText(String.format("%.2f Fahrenheit", resultFahrenheit));
+                edTempKelvin.setText(String.format("%.2f Kelvin", resultKelvin));
+            }
+        });
+
+        edTempFahrenheit.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+
+            }
+
+            @Override
+            public void afterTextChanged(Editable editable) {
+                if(editable.length() != 0) {
+                    resultKelvin = ctoK(Float.parseFloat(edCelsius.getText().toString()));
+                    resultFahrenheit = ctoF(Float.parseFloat(edCelsius.getText().toString()));
+                }else{
+                    resultKelvin = 0;
+                    resultFahrenheit = 0;
+                }
+                edTempFahrenheit.setText(String.format("%.2f Fahrenheit", resultFahrenheit));
+                edTempKelvin.setText(String.format("%.2f Kelvin", resultKelvin));
             }
         });
     }
