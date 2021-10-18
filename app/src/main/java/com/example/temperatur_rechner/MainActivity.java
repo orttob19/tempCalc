@@ -3,6 +3,8 @@ package com.example.temperatur_rechner;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.widget.EditText;
 import android.widget.TextView;
 
@@ -23,14 +25,26 @@ public class MainActivity extends AppCompatActivity {
         tvTempKelvin = (TextView) findViewById(R.id.tvTempKelvin);
         edCelsius = (EditText) findViewById(R.id.edCelsius);
 
-        resultKelvin = ctoK(Float.parseFloat(edCelsius.getText().toString()));
-        resultFahrenheit = ctoF(Float.parseFloat(edCelsius.getText().toString()));
+        edCelsius.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
 
-        tvTempFahrenheit.setText(String.format("%.2f Fahrenheit", resultFahrenheit));
-        tvTempKelvin.setText(String.format("%.2f Kelvin", resultKelvin));
+            }
 
+            @Override
+            public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
 
-        edCelsius.addTextChangedListener(View.);
+            }
+
+            @Override
+            public void afterTextChanged(Editable editable) {
+                resultKelvin = ctoK(Float.parseFloat(edCelsius.getText().toString()));
+                resultFahrenheit = ctoF(Float.parseFloat(edCelsius.getText().toString()));
+
+                tvTempFahrenheit.setText(String.format("%.2f Fahrenheit", resultFahrenheit));
+                tvTempKelvin.setText(String.format("%.2f Kelvin", resultKelvin));
+            }
+        });
     }
 
     public float ctoK(float temp){
